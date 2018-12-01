@@ -1,10 +1,9 @@
-<nav class="nav-extended z-depth-1" style="background: white">
+<nav class="nav-extended z-depth-1" style="background: #202221">
   <div class="nav-wrapper valign-wrapper">
-    <%= link_to "EarthSkipper", root_path, class: "brand-logo right", id:"nav-title" %>
+    <%= link_to "EarthSkipper", root_path, class: "brand-logo", id:"nav-title" %>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><%= link_to "First", "#{root_path}", class: "custom-font" %></li>
-      <li><%= link_to "Second", "#{root_path}", class: "custom-font" %></li>
-      <li><%= link_to "Sign out", "#{root_path}", class: "custom-font" %></li>
+      <li><%= link_to "Settings", "#{root_path}", class: "nav-option", style: "margin-left: 85vw;" %></li>
+      <li><%= link_to "Sign Out", "#{root_path}", class: "nav-option" %></li>
     </ul>
   </div>
 </nav>

@@ -1,2 +1,17 @@
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+@font-face {
+   font-family: 'radnika';
+   src: asset-url('Radnika-Medium.ttf')
+}
+
+body {
+  padding: 0;
+  margin: 0 !important;
+}
+
+.nav-option {
+  font-family: 'radnika' !important;
+  color: white !important;
+}
