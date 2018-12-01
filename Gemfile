@@ -8,6 +8,10 @@ gem 'materialize-sass', '~> 1.0.0'
 
 gem 'bcrypt', '~> 3.1.7'
 
+# Image loading
+gem 'paperclip', '~> 6.0.0'
+gem 'aws-sdk-s3'
+gem 'dotenv-rails'
 gem 'pry-byebug'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
