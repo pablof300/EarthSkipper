@@ -9,6 +9,4 @@ class Trip < ApplicationRecord
   validates :destination, presence: true
   validates :startDate, presence: true
   validates :returnDate, presence: true
-
-  validates :user_id, presence: true
 end

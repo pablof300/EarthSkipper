@@ -1,5 +1,16 @@
-<p id="notice"><%= notice %></p>
+<h1 align="center"><%=@trip.destination %> trip</h1>
 
-<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<div class="row">
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-image">
+          <img src=<%=@trip.image != nil ? @trip.image : "Image"%>>
+          <span class="card-title">Card Title</span>
+        </div>
+        <div class="card-content">
+          <p>This trip to the <%=@trip.destination %> took place from <%=@trip.startDate %> to <%=@trip.returnDate %></p>
+        </div>
 
-<%= link_to 'Back', trips_path %>
+      </div>
+    </div>
+  </div>
