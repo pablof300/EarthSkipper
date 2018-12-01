@@ -1,4 +1,4 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,7 +11,19 @@
     </div>
   <% end %>
 
+  <%= f.label :username %>
+  <%= f.text_field :username, placeholder: "Enter username", autofocus: true %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Enter name" %>
+
+  <%= f.label :lastname %>
+  <%= f.text_field :lastname, placeholder: "Enter last name" %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, placeholder: 'Enter email'%>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit("sign up", class: "btn") %>
   </div>
 <% end %>
