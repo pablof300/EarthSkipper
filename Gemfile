@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip', '~> 6.0.0'
 gem 'aws-sdk-s3'
 gem 'dotenv-rails'
+gem 'pry-byebug'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
