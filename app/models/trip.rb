@@ -2,10 +2,13 @@ class Trip < ApplicationRecord
 
   belongs_to :user
 
-  validates :verified, type: boolean, presence: true
+  has_attached_file :image
+
+  validates :verified, presence: true
   validates :price, numericality: true, presence: true
   validates :destination, presence: true
-  validates_date :startDate, presence: true
-  validates_date :returnDate, presence: true
-  
+  validates :startDate, presence: true
+  validates :returnDate, presence: true
+
+  validates :user_id, presence: true
 end

@@ -8,6 +8,11 @@ gem 'materialize-sass', '~> 1.0.0'
 
 gem 'bcrypt', '~> 3.1.7'
 
+# Image loading
+gem 'paperclip', '~> 6.0.0'
+gem 'aws-sdk-s3'
+gem 'dotenv-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 # Use sqlite3 as the database for Active Record
