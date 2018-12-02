@@ -3,7 +3,6 @@ class TripsController < ApplicationController
   cattr_accessor :countries
   @@countries = {
     "Afghanistan" => { la: 34.51666667,lo: 69.183333 },
-    "Åland Islands" => { la: 60.116667, lo:19.9 },
     "Albania" => { la: 41.31666667,lo: 19.816667 },
     "Algeria" => { la: 36.75,lo: 3.05 },
     "American Samoa" => { la: -14.26666667,lo: -170.7},
