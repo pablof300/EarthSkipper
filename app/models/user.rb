@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :trips
+  has_many :trips, dependent: :destroy
 
   before_save { self.email = email.downcase }
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

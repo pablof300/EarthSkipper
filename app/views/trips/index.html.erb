@@ -47,16 +47,16 @@
   </div>
 
 <div class="row">
-  
-    <div class="col s3 m3 offset-s3 offset-m3 btn red darken-4">
-      Travel
-    </div>
+    <%= link_to 'Accept Trip', dashboard_path, class: "col s4 m4 offset-s4 offset-m4 btn green", style: "color: white !important;", method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<div class="row">
+    <%= link_to 'Deny Trip', trip_path(trip), class: "col s4 m4 offset-s4 offset-m4 btn red darken-4", method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
 <% if counter != 0 %>
 <div class="row">
   <div class="col s6 m6 offset-s3 offset-m3">
-    <h2>Activities</h1>
+    <h2>Activities</h2>
   </div>
 </div>
 <% end %>

@@ -31,13 +31,22 @@
 <div class="row">
   <div class="col s6 m6 offset-s3 offset-m3">
     <div class="card-panel">
-  <span class="black-text">
-            Time until <%=@trip.destination %> trip:<br>
+  <span class="black-text" style="font-family: 'radnika'; font-size: 1.5em;">Time until <%=@trip.destination %> trip:<br>
             <%seconds = (@trip.startDate.to_time.to_i-Time.now.to_i)%>
-            <%(seconds/(24*3600)).round%> days and <%((seconds/(24*3600))/3600).round%> hours remaining
+            <%= (seconds/(24*3600)).round%> days and <%=((seconds/(24*3600))/3600).round%> hours remaining
   </span>
     </div>
   </div>
+
+<div class="row">
+  <div class="col s6 m6 offset-s3 offset-m3">
+    <div class="card-panel">
+    <div class="row">
+      <%= link_to 'Cancel Trip', trip_path(@trip), class: "col s4 m4 offset-s4 offset-m4 btn red darken-4", style: "color: white !important; text-tranform: none !important;", method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+  </div>
+  </div>
+  </div>
  
 
 <% end %>

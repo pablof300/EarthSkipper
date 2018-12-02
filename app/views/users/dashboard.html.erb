@@ -6,6 +6,35 @@
     <% trip.save %>
   <% end %>
 <% end %>
+
+<% if !trip.nil? && trip.startDate > Time.now%>
+<div class="row" style=";">
+  <div class="col s4 m4 offset-s4 offset-m4">
+    <div class="card" align="center" text-align="center">
+      <p style='padding: 5vw; font-family: "radnika"; font-size: 1.8em;'>Upcoming trip to <%=trip.destination%></p>
+    </div>
+  </div>
+</div>
+  <div class="row" style="">
+    <div class="col s4 m4 offset-s4 offset-m4">
+      <div class="card">
+        <div class="card-image">
+            <% img_url = "defaultImage.jpeg" %>
+          <% img_url = trip.destination + '.png' unless Rails.application.assets.find_asset(trip.destination + '.png').nil? %>
+          <%= image_tag img_url, class: "circle secondary-content" %>
+          <span class="card-title"><%=trip.destination%></span>
+        </div>
+        <div class="card-content">
+          <p style="font-family: 'radnika'">
+          <% seconds = (trip.startDate.to_time.to_i-Time.now.to_i)%>
+          <%=(seconds/(24*3600)).round%> days and <%=((seconds/(24*3600))/3600).round%> hours remaining till departure
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="row" style="padding-top: 10vh;">
   <div class="col s2 m8 offset-s2 offset-m2">
     <div class="card horizontal z-depth-3" style="background-color: #fffff">
@@ -69,9 +98,10 @@
     <ul class="collection" style="overflow:scroll; height: 40vh;">
       <% current_user.trips.each do |trip| %>
           <li class="collection-item avatar center-align">
-            <%= link_to(root_path, class: "completed-items") do %>
-              <% img_url = trip.destination + ".png" %>
-              <%= image_tag img_url, class: "circle secondary-content" %>
+            <%= link_to(trip_path(trip), class: "completed-items") do %>
+          <% img_url = "defaultImage.jpeg" %>
+          <% img_url = trip.destination + '.png' unless Rails.application.assets.find_asset(trip.destination + '.png').nil? %>
+          <%= image_tag img_url, class: "circle secondary-content" %>
               <span class="title"></span>
               <br>
               <p style="font-size: 1.5em; font-family: 'radnika';"><%= trip.destination %></p>

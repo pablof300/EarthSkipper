@@ -1,6 +1,10 @@
 <nav class="nav-extended z-depth-1" style="background: #202221">
   <div class="nav-wrapper valign-wrapper">
+    <% if !logged_in? %>
     <%= link_to "EarthSkipper", root_path, class: "brand-logo", id:"nav-title" %>
+    <% else %>
+    <%= link_to "EarthSkipper", dashboard_path, class: "brand-logo", id:"nav-title" %>
+    <% end %>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <% if logged_in? %>
         <li><%= link_to "Settings", "#{root_path}", class: "nav-option", style: "margin-left: 85vw;" %></li>
