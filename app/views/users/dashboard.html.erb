@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="padding-top: 10vh;">
   <div class="col s2 m8 offset-s2 offset-m2">
     <div class="card horizontal z-depth-3" style="background-color: #fffff">
       <div class="card-image">
@@ -35,23 +35,68 @@
   </div>
 </div>
 
-<div class="row" style="overflow:scroll;">
-  <div class="col s4 m4 offset-s4 offset-m4">
-    <ul class="collection">
+<div class="row">
+  <div class="col s3 m3 offset-s3 offset-m3" align="center">
+    <div class="card" style="background-color: #fffff">
+      <p class="center-align" text-align="center" style="padding: 3vh; font-size: 1.5em; font-family: 'radnika';">To-do</p>
+    </div>
+
+    <ul class="collection" style="overflow:scroll; height: 40vh;">
+        <% TripsController.countries.each do |key, value| %>
+            <li class="collection-item avatar center-align">
+              <% img_url = "United States.png" %>
+              <% img_url = key + '.png' unless Rails.application.assets.find_asset(key + '.png').nil? %>
+              <%= image_tag img_url, class: "circle secondary-content" %>
+              <span class="title"></span>
+              <br>
+              <p style="font-size: 1.5em; font-family: 'radnika';"><%= key %></p>
+            </li>
+        <% end %>
+    </ul>
+  </div>
+  <div class="col s3 m3" align="center">
+    <div class="card" style="background-color: #fffff">
+      <p class="center-align" text-align="center" style="padding: 3vh; font-size: 1.5em; font-family: 'radnika';">Completed</p>
+    </div>
+    <ul class="collection" style="overflow:scroll; height: 40vh;">
+      <% current_user.trips.each do |trip| %>
+          <li class="collection-item avatar center-align">
+            <%= link_to(root_path, class: "completed-items") do %>
+              <% img_url = trip.destination + ".png" %>
+              <%= image_tag img_url, class: "circle secondary-content" %>
+              <span class="title"></span>
+              <br>
+              <p style="font-size: 1.5em; font-family: 'radnika';"><%= trip.destination %></p>
+            <% end %>
+          </li>
+      <% end %>
+
       <li class="collection-item avatar center-align">
-        <%= image_tag 'colombia.png', class: "circle secondary-content" %>
+        <%= image_tag 'Colombia.png', class: "circle secondary-content" %>
         <span class="title"></span>
         <br>
         <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
       </li>
       <li class="collection-item avatar center-align">
-        <%= image_tag 'colombia.png', class: "circle secondary-content" %>
+        <%= image_tag 'Colombia.png', class: "circle secondary-content" %>
         <span class="title"></span>
         <br>
         <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
       </li>
       <li class="collection-item avatar center-align">
-        <%= image_tag 'colombia.png', class: "circle secondary-content" %>
+        <%= image_tag 'Colombia.png', class: "circle secondary-content" %>
+        <span class="title"></span>
+        <br>
+        <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
+      </li>
+      <li class="collection-item avatar center-align">
+        <%= image_tag 'Colombia.png', class: "circle secondary-content" %>
+        <span class="title"></span>
+        <br>
+        <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
+      </li>
+      <li class="collection-item avatar center-align">
+        <%= image_tag 'Colombia.png', class: "circle secondary-content" %>
         <span class="title"></span>
         <br>
         <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
@@ -60,6 +105,14 @@
   </div>
 </div>
 
-<div class="row">
+<div style='padding: 100px;'>
 
+</div>
+
+<div class="row" id="fixed-button">
+  <%= link_to trips_path do %>
+    <div class="col s12 m12 btn-large valign-wrapper" style="height: 20vh; font-size: 4em; background-color: #202221;">
+      <div style="margin-top: 3vh; color: white; font-family: 'radnika';">Go on a trip<p>
+    </div>
+  <% end %>
 </div>

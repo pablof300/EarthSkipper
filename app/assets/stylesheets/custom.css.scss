@@ -16,6 +16,10 @@ body {
   color: #767877 !important;
 }
 
+.completed-items:hover {
+  color: #202221 !important;
+}
+
 #nav-title {
   font-family: 'radnika' !important;
   color: white;
@@ -46,4 +50,16 @@ body {
 }
 #dashboard-table {
   width:100%;
+}
+
+#fixed-button {
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  height: 15vh;
+  margin: 0;
+}
+
+.btn-large {
+  text-transform: none;
 }
