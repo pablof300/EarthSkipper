@@ -1,6 +1,33 @@
-<h1>Editing Trip</h1>
+<div id="trip-edit" style="height: 100vh";>
 
-<%= render 'form', trip: @trip %>
+<%=form_for @trip do |f|%>
+<div class="row">
+<div class="col s6 m6 offset-s3 offset-m3">
+      <div class="card">
+        <div class="card-image">
+          <% if @trip.image_file_name.nil? %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <%= image_tag @trip.image.url %>
+          <% end %>
+          <span class="card-title">Main Image</span>
+        </div>
 
-<%= link_to 'Show', @trip %> |
-<%= link_to 'Back', trips_path %>
+      </div>
+  <div class="field" align="center" style="font-family: 'radnika';" >
+      <%= f.label :"Upload Main Image" %>
+      <%= f.file_field :image, class: 'waves-effect waves-light btn', style: '' %>
+  </div>
+  <% end %>
+</div>
+
+<div class="row" align="center">
+  <div class ="col s6 m6 offset-s3 offset-m3">
+  <a class="waves-effect waves-light btn">Verify Trip</a>
+  </div>
+</div>
+<div class="row">
+  <%= link_to 'Show', @trip %> |
+  <%= link_to 'Back', users_path %>
+</div>
+</div>
