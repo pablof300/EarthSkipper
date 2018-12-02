@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  cattr_accessor :countries
   @@countries = {
     "Afghanistan" => { la: 34.51666667,lo: 69.183333 },
     "Åland Islands" => { la: 60.116667, lo:19.9 },
@@ -266,6 +267,7 @@ class TripsController < ApplicationController
   # GET /trips/new
   def new
     @trip = Trip.new
+    #VenueHolder.new("Chile").venues.first.name
   end
 
   # GET /trips/1/edit

@@ -8,6 +8,8 @@ gem 'materialize-sass', '~> 1.0.0'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'faraday'
+
 # Image loading
 gem 'paperclip', '~> 6.0.0'
 gem 'aws-sdk-s3'
