@@ -13,7 +13,7 @@
 <% end %>
 
 <%trip = Trip.new(verified: false,price: 10,destination: currentCountry,startDate: Time.now+3.days,returnDate: Time.now+10.days)%>
-<%trip.venue_holder = VenueHolder.new(trip.destination,trip.body)%>
+<%trip.venue_holder = VenueHolder.new(trip.destination,trip.https)%>
 <%trip.venue_holder.venues do |venue|%>
   <div class="row">
     <div class="col s6 m6 offset-s3 offset-m3">
