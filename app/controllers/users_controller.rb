@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def dashboard
+    redirect_to login_path unless logged_in?
+    @user = current_user
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
