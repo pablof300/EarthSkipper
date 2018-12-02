@@ -13,7 +13,7 @@
           <% if @trip.image_file_name.nil? %>
             <%= image_tag 'defaultImage.jpeg' %>
           <% else %>
-            <% @trip.image%>
+            <%= image_tag @trip.image.url %>
           <% end %>
 
         </div>
