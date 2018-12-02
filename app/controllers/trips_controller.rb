@@ -281,6 +281,7 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
+        @trip.venue_holder = VenueHolder.new(@trip.destination, @trip.body)
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
