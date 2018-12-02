@@ -28,5 +28,6 @@ module EarthSkipper
     # the framework and any gems in your application.
 
     config.serve_static_assets = true
+    config.assets.compile = true
   end
 end
