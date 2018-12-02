@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 2018_12_02_084638) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "user_id"
+    t.string "image_one_file_name"
+    t.string "image_one_content_type"
+    t.integer "image_one_file_size"
+    t.datetime "image_one_updated_at"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 

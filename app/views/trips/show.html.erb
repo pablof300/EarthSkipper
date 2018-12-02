@@ -5,7 +5,7 @@
     </div>
   </div>
 </div>
-<% if @trip.startDate > Time.now %>
+<% if @trip.startDate < Time.now %>
 <div class="row">
     <div class="col s6 m6 offset-s3 offset-m3">
       <div class="card z-depth-3">
@@ -35,21 +35,6 @@
         </span>
     </div>
   </div>
-  <div class="row">
-      <div class="col s6 m6 offset-s3 offset-m3">
-        <ul class="collection">
-          <% for i in 0...3%>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">folder</i>
-      <span class="title">Activity <%=i+1%></span>
-      <p><%=@trip.venue_holder[i].category %> activity <br>
-         at <%=@trip.venue_holder[i].location %>, <%=@trip.venue_holder[i].city%>
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <% end %>
-    
-      </div>
-  </div>
+ 
 
 <% end %>

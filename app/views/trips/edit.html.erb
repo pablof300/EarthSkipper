@@ -1,8 +1,7 @@
 <div id="trip-edit" style="height: 100vh";>
-
 <%=form_for @trip do |f|%>
-<div class="row">
-<div class="col s6 m6 offset-s3 offset-m3">
+  <div class="row">
+    <div class="col s6 m6 offset-s3 offset-m3">
       <div class="card">
         <div class="card-image">
           <% if @trip.image_file_name.nil? %>
@@ -12,22 +11,17 @@
           <% end %>
           <span class="card-title">Main Image</span>
         </div>
-
       </div>
-  <div class="field" align="center" style="font-family: 'radnika';" >
-      <%= f.label :"Upload Main Image" %>
-      <%= f.file_field :image, class: 'waves-effect waves-light btn', style: '' %>
+    </div>
   </div>
-  <% end %>
-</div>
 
-<div class="row" align="center">
-  <div class ="col s6 m6 offset-s3 offset-m3">
-  <a class="waves-effect waves-light btn">Verify Trip</a>
+  <div class="row">
+    <div class="field col s8 m8 offset-s2 offset-m2" align="center" style="font-family: 'radnika';" >
+        <%= f.label :"Upload Main Image" %>
+        <%= f.file_field :image, class: 'btn', style: '' %>
   </div>
-</div>
-<div class="row">
-  <%= link_to 'Show', @trip %> |
-  <%= link_to 'Back', users_path %>
-</div>
-</div>
+
+  <div class="row">
+    <%= f.submit 'Finish', class:'btn col s2 m2 offset-s5 offset-m5' %>
+  </div>
+<% end %>
