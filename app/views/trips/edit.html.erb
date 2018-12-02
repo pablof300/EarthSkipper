@@ -17,7 +17,7 @@
 
   <div class="row">
     <div class="field col s8 m8 offset-s2 offset-m2" align="center" style="font-family: 'radnika';" >
-        <%= f.label :"Upload Main Image" %>
+        <%= f.label :image %>
         <%= f.file_field :image, class: 'btn', style: '' %>
     </div>
   </div>
@@ -62,6 +62,10 @@
   </div>
 
   <div class="row">
+    <div class="field col s2 m2 offset-s3 offset-m3" align="center" style="font-family: 'radnika';" >
+        <%= f.label :image_one %>
+        <%= f.file_field :image, class: 'btn', style: '' %>
+    </div>
   </div>
 
   <div class="row">

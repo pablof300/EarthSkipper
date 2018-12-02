@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% countries_visited = [] %>
+<% @user.trips do |trip| %>
+  <%countries_visited.push(trip.destination)%>
+<% end %>
 
-<h1>Trips</h1>
+<%countries = TripsController.countries%>
+<%values = countries.values%>
+<%currentCountry = nil%>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%loop do %>
+  <%currentCountry = values[rand(values.size)]%>
+  <%break if(!(countries_visited.include? currentCountry))%>
+<% end %>
 
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <td><%= link_to 'Show', trip %></td>
-        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Trip', new_trip_path %>
+<%trip = Trip.new(verified: false,price: 10,destination: currentCountry,startDate: Time.now+3.days,returnDate: Time.now+10.days)%>
+<%trip.venue_holder = VenueHolder.new(trip.destination,trip.body)%>
+<%trip.venue_holder.venues do |venue|%>
+  <div class="row">
+    <div class="col s6 m6 offset-s3 offset-m3">
+      <div class="card">
+        <div class="card-content">
+          <p>venue.city<p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
