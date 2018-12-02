@@ -14,11 +14,13 @@ class VenueHolder
     httpParams = "?client_id=NQIJIBID00KPAONWWSS1NO35ZCNN04DDAN2OOO2PTXHQIA54&client_secret=4R12UMTGWLNZN2TEK0LE3PVH25QBLNPZ0AUTERAKKCGV4FMZ&v=20180323&categoryId=4bf58dd8d48988d12d941735&limit=10&intent=checkin&ll=#{countryData[:la]},#{countryData[:lo]}"
     response = conn.get httpParams
     body = response.body
-    http = ""
+    http = {}
 
-    hash = JSON.parse(@body)
+    hash = JSON.parse(body)
+    counter = 0;
     (0..9).to_a.sample(4).each do |n|
-      http += hash['response']['venues'][n].to_json.to_s + ","
+      http[counter] = hash['response']['venues'][n]
+      counter += 1
     end
     return http;
   end

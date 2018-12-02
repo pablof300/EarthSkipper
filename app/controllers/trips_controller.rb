@@ -284,10 +284,11 @@ class TripsController < ApplicationController
     @trip.startDate = Time.now
     @trip.price = 10;
     @trip.user = current_user
+    @trip.https = VenueHolder.get_http(@trip.destination)
 
     respond_to do |format|
       if @trip.save
-        @trip.https = VenueHolder.http(@trip.destination)
+
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else

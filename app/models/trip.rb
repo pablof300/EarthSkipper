@@ -8,7 +8,7 @@ class Trip < ApplicationRecord
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  
+
   attr_accessor :venue_holder
 
   validates :verified, presence: true
@@ -16,4 +16,7 @@ class Trip < ApplicationRecord
   validates :destination, presence: true
   validates :startDate, presence: true
   validates :returnDate, presence: true
+
+  serialize :https
+
 end

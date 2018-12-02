@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_114716) do
     t.string "image_three_content_type"
     t.integer "image_three_file_size"
     t.datetime "image_three_updated_at"
-    t.string "https"
+    t.text "https"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 

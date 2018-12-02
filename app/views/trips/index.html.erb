@@ -1,10 +1,10 @@
+
 <% countries_visited = [] %>
 <% @user.trips do |trip| %>
   <%countries_visited.push(trip.destination)%>
 <% end %>
-
 <%countries = TripsController.countries%>
-<%values = countries.values%>
+<%values = countries.keys%>
 <%currentCountry = nil%>
 
 <%loop do %>
@@ -13,13 +13,15 @@
 <% end %>
 
 <%trip = Trip.new(verified: false,price: 10,destination: currentCountry,startDate: Time.now+3.days,returnDate: Time.now+10.days)%>
-<%trip.venue_holder = VenueHolder.new(trip.destination,trip.https)%>
-<%trip.venue_holder.venues do |venue|%>
+<%trip.https = VenueHolder.get_http(trip.destination)%>
+<%trip.user = current_user%>
+<%trip.save%>
+<%4.times do |n| %>
   <div class="row">
     <div class="col s6 m6 offset-s3 offset-m3">
       <div class="card">
         <div class="card-content">
-          <p>venue.city<p>
+          <%= trip.https[n]["name"] %>
         </div>
       </div>
     </div>
