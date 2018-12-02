@@ -6,7 +6,8 @@
   </div>
 </div>
 <% if @trip.startDate < Time.now %>
-<div class="row">
+
+  <div class="row">
     <div class="col s6 m6 offset-s3 offset-m3">
       <div class="card z-depth-3">
         <div class="card-image">
@@ -26,6 +27,52 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col s6 m6 offset-s3 offset-m3">
+      <div class="card z-depth-3">
+        <div class="card-image">
+          <% if @trip.image_one_file_name.nil? %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <%= image_tag @trip.image_one.url %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s6 m6 offset-s3 offset-m3">
+      <div class="card z-depth-3">
+        <div class="card-image">
+          <% if @trip.image_two_file_name.nil? %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <%= image_tag @trip.image_two.url %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s6 m6 offset-s3 offset-m3">
+      <div class="card z-depth-3">
+        <div class="card-image">
+          <% if @trip.image_three_file_name.nil? %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <%= image_tag @trip.image_three.url %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 <% else %>
 <div class="row">
   <div class="col s6 m6 offset-s3 offset-m3">

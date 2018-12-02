@@ -1,3 +1,11 @@
+<% trip = !@user.trips.last.nil? ? @user.trips.last : nil%>
+<% if !trip.nil? && (trip.startDate < Time.now && Time.now < trip.returnDate) %>
+  <% location = UserLocation.get_country(current_user, trip.destination, request.remote_ip) %>
+  <% if !location.nil? && location == trip.destination %>
+    <% trip.verified = true %>
+    <% trip.save %>
+  <% end %>
+<% end %>
 <div class="row" style="padding-top: 10vh;">
   <div class="col s2 m8 offset-s2 offset-m2">
     <div class="card horizontal z-depth-3" style="background-color: #fffff">

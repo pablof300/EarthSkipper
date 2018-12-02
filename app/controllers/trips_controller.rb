@@ -332,6 +332,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:verified,:price,:destination,:startDate,:returnDate, :image, :image_one, :image_two, :image_three)
+      params.require(:trip).permit(:verified,:price,:destination,:startDate,:returnDate, :image, :image_one, :image_two, :image_three, :https)
     end
 end

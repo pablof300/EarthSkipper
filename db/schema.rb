@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_103419) do
+ActiveRecord::Schema.define(version: 2018_12_02_114716) do
 
   create_table "trips", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_103419) do
     t.string "image_three_content_type"
     t.integer "image_three_file_size"
     t.datetime "image_three_updated_at"
+    t.string "https"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
