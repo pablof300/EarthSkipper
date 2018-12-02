@@ -10,21 +10,15 @@
       </ul>
     </div>
   <% end %>
-  
+
   <%= f.label :verified %>
   <%= f.text_field :verified, placeholder: "Enter username", autofocus: true %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "Enter name" %>
+  <%= f.label :destination %>
+  <%= f.text_field :destination, placeholder: "Enter name" %>
 
-  <%= f.label :lastname %>
-  <%= f.text_field :lastname, placeholder: "Enter last name" %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email, placeholder: 'Enter email'%>
-
-  <%= f.label :password %>
-  <%= f.password_field :password, placeholder: "Enter password", class: "form-control", type: "text"%>
+  <%= f.label :image %>
+  <%= f.file_field :image, placeholder: "Enter last name" %>
 
 
   <div class="actions">

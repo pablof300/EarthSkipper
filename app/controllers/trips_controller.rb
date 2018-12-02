@@ -278,9 +278,17 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
 
+    @trip.returnDate = Time.now
+    @trip.startDate = Time.now
+    @trip.price = 10;
+    @trip.user = current_user
+
     respond_to do |format|
       if @trip.save
-        @trip.venue_holder = VenueHolder.new(@trip.destination, @trip.body)
+        #@trip.venue_holder = VenueHolder.new(@trip.destination, @trip.body)
+        binding.pry
+        puts 'cats'
+        puts 'many cats'
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
@@ -322,6 +330,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:verified,:price,:destination,:startDate,:returnDate)
+      params.require(:trip).permit(:verified,:price,:destination,:startDate,:returnDate, :image, :image_one, :image_two, :image_three)
     end
 end
