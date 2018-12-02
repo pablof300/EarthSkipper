@@ -1,16 +1,48 @@
-<h1 align="center"><%=@trip.destination %> trip</h1>
 
 <div class="row">
-    <div class="col s12 m12">
-      <div class="card">
+  <div class="col s6 m6 offset-s3 offset-m3">
+    <div class="card z-depth-3">
+      <h1 align="center" style="font-family: 'radnika'; padding: 2vh;"><%=@trip.destination %> Trip</h1>
+    </div>
+  </div>
+</div>
+<% if @trip.verified %>
+<div class="row">
+    <div class="col s6 m6 offset-s3 offset-m3">
+      <div class="card z-depth-3">
         <div class="card-image">
-          <img src=<%=@trip.image != nil ? @trip.image : "Image"%>>
-          <span class="card-title">Card Title</span>
+          <% if @trip.image_file_name.nil? %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <% @trip.image%>
+          <% end %>
+
         </div>
-        <div class="card-content">
-          <p>This trip to the <%=@trip.destination %> took place from <%=@trip.startDate %> to <%=@trip.returnDate %></p>
+        <div class="card-content" align="center">
+          <p style="font-family: 'radnika'; font-size: 1.25em;">This trip to the <%=@trip.destination %> took place from <%=@trip.startDate %> to <%=@trip.returnDate %></p>
         </div>
 
       </div>
     </div>
   </div>
+<% else %>
+<div class="row">
+    <div class="col s12 m12">
+      <div class="card-panel">
+        <span class="black-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col s12 m12">
+        <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+        </div>
+      </div>
+    </div>
+<% end %>
