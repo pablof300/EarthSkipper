@@ -1,4 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col s2 m8 offset-s2 offset-m2">
+    <div class="card horizontal z-depth-3" style="background-color: #fffff">
+      <div class="card-image">
+        <%= image_tag 'avatar.png', style: 'width: 300px; height: 300px; padding: 30px;' %>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content" align="center"">
+          <p style="color: #202221; font-size: 2em; margin-top: 1vh;"><%= @user.name %></p>
+        </div>
+        <p style="color: #202221; font-size: 1.5em; margin-top: 1vh;">Badges</p>
+        <div class="row">
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+        </div>
+        <div class="row">
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+            <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
+        </div>
+        <p style="color: #202221; font-size: 1.2em; margin-top: 1vh;">Member since <%= pluralize(((Time.now - @user.created_at) / 60 / 60).to_i + 1, 'hour')%> ago</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+  </div>
+</div>
