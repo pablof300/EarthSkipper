@@ -1,4 +1,4 @@
-<div id="trip-edit" style="height: 100vh";>
+<div id="trip-edit" style="height: 200vh">
 <%=form_for @trip do |f|%>
   <div class="row">
     <div class="col s4 m4 offset-s3 offset-m4                                                                                                   ">
@@ -23,52 +23,63 @@
   </div>
 
   <div class="row">
-    <div class="col s2 m2 offset-s3 offset-m3">                                                                                                   ">
+    <div class="col s2 m2 offset-s5 offset-m5">
       <div class="card">
         <div class="card-image">
-          <% if @trip.image_file_name.nil? %>
+          <% if @trip.image_one_file_name.nil? %>
             <%= image_tag 'defaultImage.jpeg' %>
           <% else %>
-            <%= image_tag @trip.image.url %>
+            <%= image_tag @trip.image_one.url %>
           <% end %>
-          <span class="card-title">Main Image</span>
-        </div>
-      </div>
-    </div>
-    <div class="col s2 m2">                                                                                                ">
-      <div class="card">
-        <div class="card-image">
-          <% if @trip.image_file_name.nil? %>
-            <%= image_tag 'defaultImage.jpeg' %>
-          <% else %>
-            <%= image_tag @trip.image.url %>
-          <% end %>
-          <span class="card-title">Main Image</span>
-        </div>
-      </div>
-    </div>
-    <div class="col s2 m2">                                                                                                  ">
-      <div class="card">
-        <div class="card-image">
-          <% if @trip.image_file_name.nil? %>
-            <%= image_tag 'defaultImage.jpeg' %>
-          <% else %>
-            <%= image_tag @trip.image.url %>
-          <% end %>
-          <span class="card-title">Main Image</span>
+          <span class="card-title">First image</span>
         </div>
       </div>
     </div>
   </div>
-
   <div class="row">
-    <div class="field col s2 m2 offset-s3 offset-m3" align="center" style="font-family: 'radnika';" >
-        <%= f.label :image_one %>
-        <%= f.file_field :image, class: 'btn', style: '' %>
-    </div>
+    <%= f.file_field :image_one, class: 'btn col s2 m2 offset-s5 offset-m5', style: '' %>
   </div>
 
   <div class="row">
-    <%= f.submit 'Finish', class:'btn col s2 m2 offset-s5 offset-m5' %>
+    <div class="col s2 m2 offset-s5 offset-m5">
+      <div class="card">
+        <div class="card-image">
+          <% if @trip.image_one_file_name.nil? %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <%= image_tag @trip.image_one.url %>
+          <% end %>
+          <span class="card-title">Second Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.file_field :image_one, class: 'btn col s2 m2 offset-s5 offset-m5', style: '' %>
+  </div>
+
+  <div class="row">
+    <div class="col s2 m2 offset-s5 offset-m5">
+      <div class="card">
+        <div class="card-image">
+          <% if @trip.image_one_file_name.nil? %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <%= image_tag @trip.image_one.url %>
+          <% end %>
+          <span class="card-title">Third Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.file_field :image_one, class: 'btn col s2 m2 offset-s5 offset-m5', style: '' %>
+  </div>
+
+
+  <div class="row">
+    <%= f.submit 'Finish', class:'btn col s4 m4 offset-s4 offset-m4' %>
   </div>
 <% end %>
+
+</div>
