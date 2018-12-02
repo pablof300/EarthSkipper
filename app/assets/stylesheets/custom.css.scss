@@ -21,3 +21,12 @@ body {
   color: white;
   margin-left: 1vw;
 }
+
+#nav-title:hover {
+  background: transparent;
+}
+
+#index-main {
+  background-image: url(index_background.jpg);
+  background-size: cover;
+}

@@ -1,8 +1,12 @@
-<h1 align="center">Log in</h1>
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :username %><br />
-  <%= f.email_field :username, placeholder: "Enter username", autofocus: true, type: "text"%>
-  <%= f.label :password %><br />
-  <%= f.password_field :password, autocomplete: "off", type: "text"%>
-  <%= f.submit "Login" %>
-<% end %>
+<div class="row">
+  <div class="col s4 m4 offset-s4 offset-m4" aling="center">
+    <h1 align="center" style= 'font-family: "radnika";'>Log in</h1>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :username %><br />
+      <%= f.email_field :username, placeholder: "Enter username", autofocus: true, type: "text"%>
+      <%= f.label :password %><br />
+      <%= f.password_field :password, placeholder: "Enter your password", autocomplete: "off", type: "text"%>
+      <%= f.submit "Login", class: 'btn pulse' %>
+    <% end %>
+  </div>
+</div>

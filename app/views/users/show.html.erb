@@ -8,7 +8,7 @@
         <div class="card-content" align="center"">
           <p style="color: #202221; font-size: 2em; margin-top: 1vh;"><%= @user.name %></p>
         </div>
-        <p style="color: #202221; font-size: 1.5em; margin-top: 1vh;">Badges</p>
+        <p style="color: #202221; font-size: 1.5em; font-family: 'radnika'; margin-top: 1vh;">Badges</p>
         <div class="row">
             <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
             <%= image_tag 'avatar.png', class: "col s2 m2", style: '' %>
@@ -23,10 +23,39 @@
         </div>
         <p style="color: #202221; font-size: 1.2em; margin-top: 1vh;">Member since <%= pluralize(((Time.now - @user.created_at) / 60 / 60).to_i + 1, 'hour')%> ago</p>
         </div>
-      </div>
     </div>
   </div>
+</div>
 
+<div class="row">
+  <div class="col s4 m4 offset-s4 offset-m4">
+    <div class="card" style="background-color: #fffff">
+      <p class="center-align" text-align="center" style="padding: 3vh; font-size: 3em; font-family: 'radnika';">Trips</p>
+    </div>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col s4 m4 offset-s4 offset-m4">
+    <ul class="collection">
+      <li class="collection-item avatar center-align">
+        <%= image_tag 'colombia.png', class: "circle secondary-content" %>
+        <span class="title"></span>
+        <br>
+        <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
+      </li>
+      <li class="collection-item avatar center-align">
+        <%= image_tag 'colombia.png', class: "circle secondary-content" %>
+        <span class="title"></span>
+        <br>
+        <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
+      </li>
+      <li class="collection-item avatar center-align">
+        <%= image_tag 'colombia.png', class: "circle secondary-content" %>
+        <span class="title"></span>
+        <br>
+        <p style="font-size: 1.5em; font-family: 'radnika';">Colombia</p>
+      </li>
+    </ul>
   </div>
 </div>

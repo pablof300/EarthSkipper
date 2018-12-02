@@ -1,48 +1,77 @@
-
 <div class="row">
-  <div class="col s6 m6 offset-s3 offset-m3">
-    <div class="card z-depth-3">
-      <h1 align="center" style="font-family: 'radnika'; padding: 2vh;"><%=@trip.destination %> Trip</h1>
-    </div>
-  </div>
+  <div class="col s6 m6 offset-s3 offset-m3">
+    <div class="card z-depth-3">
+      <h1 align="center" style="font-family: 'radnika'; padding: 2vh;"><%=@trip.destination %> Trip</h1>
+    </div>
+  </div>
 </div>
-<% if @trip.verified %>
+<% if @trip.startDate > Time.now %>
 <div class="row">
     <div class="col s6 m6 offset-s3 offset-m3">
       <div class="card z-depth-3">
         <div class="card-image">
           <% if @trip.image_file_name.nil? %>
-            <%= image_tag 'defaultImage.jpeg' %>
-          <% else %>
-            <% @trip.image%>
-          <% end %>
+            <%= image_tag 'defaultImage.jpeg' %>
+          <% else %>
+            <% @trip.image%>
+          <% end %>
 
         </div>
         <div class="card-content" align="center">
-          <p style="font-family: 'radnika'; font-size: 1.25em;">This trip to the <%=@trip.destination %> took place from <%=@trip.startDate %> to <%=@trip.returnDate %></p>
+          <p style="font-family: 'radnika'; font-size: 1.25em;">This trip to the <%=@trip.destination %> took place from <%=@trip.startDate %> to <%=@trip.returnDate %>.</p>
+          <% if !@trip.verified%>
+          <p style="font-family: 'radnika'; font-size: 1.25em;">This trip has not been verified.</p>
+          <% end %>
         </div>
-
       </div>
     </div>
   </div>
 <% else %>
 <div class="row">
-    <div class="col s12 m12">
-      <div class="card-panel">
-        <span class="black-text">I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-        </span>
+  <div class="col s6 m6 offset-s3 offset-m3">
+    <div class="card-panel">
+        <span class="black-text">
+          Time until <%=@trip.destination %> trip
+        </span>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col s6 m6 offset-s3 offset-m3">
+        <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
+      </div>
+  </div>
 
-      </div>
-    </div>
-  </div>
-  <div class="row">
-      <div class="col s12 m12">
-        <div class="card-panel teal">
-          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-          </span>
-        </div>
-      </div>
-    </div>
 <% end %>
