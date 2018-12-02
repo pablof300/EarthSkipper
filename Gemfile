@@ -10,6 +10,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faraday'
 
+gem 'rails_12factor', group: :production
+
 # Image loading
 gem 'paperclip', '~> 6.0.0'
 gem 'aws-sdk-s3'
