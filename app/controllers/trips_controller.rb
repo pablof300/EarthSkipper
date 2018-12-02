@@ -255,7 +255,7 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    redirect_to login_path if !logged_in?
+    redirect_to root_path if !logged_in?
     @trips = Trip.all
     @user = current_user
   end

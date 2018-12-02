@@ -75,6 +75,11 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  # Add the font path
+config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+# Include font files to Assets
+config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
