@@ -100,4 +100,7 @@ Rails.application.configure do
     :bucket => 'earthskipper'
   }
 
+  config.serve_static_assets = true
+  config.assets.compile = true
+
 end
