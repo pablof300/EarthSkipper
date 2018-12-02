@@ -19,8 +19,10 @@ class VenueHolder
     hash = JSON.parse(body)
     counter = 0;
     (0..9).to_a.sample(4).each do |n|
-      http[counter] = hash['response']['venues'][n]
-      counter += 1
+      if(!hash.nil? && !hash['response'].nil? && !hash['response']['venues'].nil? && !hash['response']['venues'][n].nil?)
+        http[counter] = hash['response']['venues'][n]
+        counter += 1
+      end
     end
     return http;
   end

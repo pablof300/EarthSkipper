@@ -52,7 +52,7 @@
     <ul class="collection" style="overflow:scroll; height: 40vh;">
         <% TripsController.countries.each do |key, value| %>
             <li class="collection-item avatar center-align">
-              <% img_url = "United States.png" %>
+              <% img_url = "defaultImage.jpeg" %>
               <% img_url = key + '.png' unless Rails.application.assets.find_asset(key + '.png').nil? %>
               <%= image_tag img_url, class: "circle secondary-content" %>
               <span class="title"></span>

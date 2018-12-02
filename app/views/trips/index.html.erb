@@ -16,12 +16,62 @@
 <%trip.https = VenueHolder.get_http(trip.destination)%>
 <%trip.user = current_user%>
 <%trip.save%>
+
+<% counter = 0 %>
 <%4.times do |n| %>
+  <% if !trip.https.nil? && !trip.https[n].nil?  %>
+    <% counter += 1 %>
+  <% end %>
+<% end %>
+
+
+<div class="row">
+    <div class="col s6 m6 offset-s3 offset-m3">
+      <div class="card z-depth-3">
+        <div class="card-image">
+  <% img_url = "defaultImage.jpeg" %>
+  <% img_url = trip.destination + '.png' unless Rails.application.assets.find_asset(trip.destination + '.png').nil? %>
+  <%= image_tag img_url, class: "circle secondary-content" %>
+        </div>
+        <div class="card-content" align="center">
+          <% country = Restcountry::Country.find_by_name(trip.destination) %>
+          <p style="font-size: 3em; font-family: 'radnika';"><%= country.name %></p>
+          <br />
+          <p style="font-family: 'radnika';">Capital <%= country.capital %></p>
+          <p style="font-family: 'radnika';">Population of <%= country.population.to_s.reverse.scan(/\d{3}|.+/).join(",").reverse %></p>
+          <p style="font-family: 'radnika';">Currency <%= country.currencies[0] %></p>
+          <p style="font-family: 'radnika';">Time zone <%= country.timezones[0] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  
+    <div class="col s3 m3 offset-s3 offset-m3 btn red darken-4">
+      Travel
+    </div>
+</div>
+
+<% if counter != 0 %>
+<div class="row">
+  <div class="col s6 m6 offset-s3 offset-m3">
+    <h2>Activities</h1>
+  </div>
+</div>
+<% end %>
+
+<%counter.times do |n| %>
   <div class="row">
     <div class="col s6 m6 offset-s3 offset-m3">
       <div class="card">
         <div class="card-content">
-          <%= trip.https[n]["name"] %>
+          <% if !trip.https.nil? && !trip.https[n].nil?  %>
+            <p style="font-size: 2em;"><%= trip.https[n]["name"] %></p>
+            <p style="font-size: 1em;"><%= trip.https[n]["categories"][0]["shortName"] %></p>
+            <p style="font-size: 1em;">Address: <%= trip.https[n]["location"]["address"] %></p>
+            <p style="font-size: 1em;">City: <%= trip.https[n]["location"]["city"] %></p>
+          <% end %>
         </div>
       </div>
     </div>
