@@ -11,7 +11,7 @@ class VenueHolder
       c.use Faraday::Adapter::NetHttp
     end
     countryData = TripsController.countries[country_name]
-    httpParams = "?client_id=NQIJIBID00KPAONWWSS1NO35ZCNN04DDAN2OOO2PTXHQIA54&client_secret=4R12UMTGWLNZN2TEK0LE3PVH25QBLNPZ0AUTERAKKCGV4FMZ&v=20180323&categoryId=4bf58dd8d48988d12d941735&limit=10&intent=checkin&ll=#{countryData[:la]},#{countryData[:lo]}"
+    httpParams = "?client_id=" + Rails.application.credentials.foursquare[:client_id] + "&client_secret="+ Rails.application.credentials.foursquare[:client_secret] + "&v=20180323&categoryId=4bf58dd8d48988d12d941735&limit=10&intent=checkin&ll=#{countryData[:la]},#{countryData[:lo]}"
     response = conn.get httpParams
     body = response.body
     http = {}

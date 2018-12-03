@@ -55,18 +55,19 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  # Add the font path
-config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
-# Include font files to Assets
-config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+  # Add the font path
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+  # Include font files to Assets
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_host_name => 's3.amazonaws.com',
     :s3_credentials => {
-      :access_key_id => 'AKIAJAPZSP7CHLXBM65Q',
-      :secret_access_key => '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',
+      :access_key_id => Rails.application.credentials.aws[:access_key_id],
+      :secret_access_key => Rails.application.credentials.aws[:secret_access_key],
       :s3_region => "us-east-1"
     },
     :bucket => 'earthskipper'

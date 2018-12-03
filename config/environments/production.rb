@@ -98,8 +98,8 @@ config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     :storage => :s3,
     :s3_host_name => 's3.amazonaws.com',
     :s3_credentials => {
-      :access_key_id => 'AKIAJAPZSP7CHLXBM65Q',
-      :secret_access_key => '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',
+      :access_key_id => Rails.application.credentials.aws[:access_key_id],
+      :secret_access_key => Rails.application.credentials.aws[:secret_access_key],
       :s3_region => "us-east-1"
     },
     :bucket => 'earthskipper'
